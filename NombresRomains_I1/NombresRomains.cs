@@ -4,7 +4,7 @@
     {
         public static string Convertir(int nombreArabe)
         {
-            return "I";
+            return new string('I', nombreArabe);
         }
     }
 }
