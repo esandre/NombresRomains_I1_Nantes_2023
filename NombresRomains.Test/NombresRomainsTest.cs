@@ -42,5 +42,18 @@ namespace NombresRomains.Test
             // ALORS on obtient V
             Assert.Equal("V", nombreRomain);
         }
+
+        [Fact]
+        public void Test6()
+        {
+            // ETANT DONNE le chiffre 6
+            const int chiffreArabe = 6;
+
+            // QUAND on le convertir en nombre romain
+            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(chiffreArabe);
+
+            // ALORS on obtient VI
+            Assert.Equal("VI", nombreRomain);
+        }
     }
 }

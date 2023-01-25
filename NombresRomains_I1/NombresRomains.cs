@@ -7,7 +7,8 @@
                {
                    < 4 => new string('I', nombreArabe),
                    4   => "IV",
-                   _   => "V"
+                   5   => "V",
+                   _   => "VI"
                };
     }
 }
