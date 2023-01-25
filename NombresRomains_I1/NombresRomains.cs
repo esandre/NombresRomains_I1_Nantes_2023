@@ -7,10 +7,8 @@
                {
                    < 4 => new string('I', nombreArabe),
                    4   => "IV",
-                   5   => "V",
-                   6   => "VI",
-                   7   => "VII",
-                   _   => "VIII"
+                   <= 8   => 'V' + Convertir(nombreArabe - 5),
+                   _   => throw new NotSupportedException()
                };
     }
 }
