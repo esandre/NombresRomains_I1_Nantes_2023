@@ -3,8 +3,11 @@
     public static class NombresRomains
     {
         public static string Convertir(int nombreArabe)
-        {
-            return nombreArabe < 4 ? new string('I', nombreArabe) : "IV";
-        }
+            => nombreArabe switch
+               {
+                   < 4 => new string('I', nombreArabe),
+                   4   => "IV",
+                   _   => "V"
+               };
     }
 }

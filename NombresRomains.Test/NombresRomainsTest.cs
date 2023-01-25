@@ -2,43 +2,19 @@ namespace NombresRomains.Test
 {
     public class NombresRomainsTest
     {
-        [Fact]
-        public void Test1()
+        [Theory]
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(3)]
+        public void TestUnité(int n)
         {
-            // ETANT DONNE le chiffre 1
-            const int chiffreArabe = 1;
+            // ETANT DONNE un chiffre <n> entre 1 et 3
 
             // QUAND on le convertir en nombre romain
-            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(chiffreArabe);
+            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(n);
 
-            // ALORS on obtient I
-            Assert.Equal("I", nombreRomain);
-        }
-
-        [Fact]
-        public void Test2()
-        {
-            // ETANT DONNE le chiffre 2
-            const int chiffreArabe = 2;
-
-            // QUAND on le convertir en nombre romain
-            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(chiffreArabe);
-
-            // ALORS on obtient II
-            Assert.Equal("II", nombreRomain);
-        }
-
-        [Fact]
-        public void Test3()
-        {
-            // ETANT DONNE le chiffre 3
-            const int chiffreArabe = 3;
-
-            // QUAND on le convertir en nombre romain
-            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(chiffreArabe);
-
-            // ALORS on obtient III
-            Assert.Equal("III", nombreRomain);
+            // ALORS on obtient I répété <n> fois
+            Assert.Equal(new string('I', n), nombreRomain);
         }
 
         [Fact]
@@ -52,6 +28,19 @@ namespace NombresRomains.Test
 
             // ALORS on obtient IV
             Assert.Equal("IV", nombreRomain);
+        }
+
+        [Fact]
+        public void Test5()
+        {
+            // ETANT DONNE le chiffre 5
+            const int chiffreArabe = 5;
+
+            // QUAND on le convertir en nombre romain
+            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(chiffreArabe);
+
+            // ALORS on obtient V
+            Assert.Equal("V", nombreRomain);
         }
     }
 }
