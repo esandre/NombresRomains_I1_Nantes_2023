@@ -17,19 +17,6 @@ namespace NombresRomains.Test
             Assert.Equal(new string('I', n), nombreRomain);
         }
 
-        [Fact]
-        public void Test4()
-        {
-            // ETANT DONNE le chiffre 4
-            const int chiffreArabe = 4;
-
-            // QUAND on le convertir en nombre romain
-            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(chiffreArabe);
-
-            // ALORS on obtient IV
-            Assert.Equal("IV", nombreRomain);
-        }
-
         [Theory]
         [InlineData(5)]
         [InlineData(6)]
@@ -46,22 +33,10 @@ namespace NombresRomains.Test
             Assert.Equal(attendu, nombreRomain);
         }
 
-        [Fact]
-        public void Test9()
-        {
-            // ETANT DONNE le chiffre 9
-            const int chiffreArabe = 9;
-
-            // QUAND on le convertir en nombre romain
-            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(chiffreArabe);
-
-            // ALORS on obtient IX
-            Assert.Equal("IX", nombreRomain);
-        }
-
         [Theory]
         [InlineData(10)]
         [InlineData(11)]
+        [InlineData(12)]
         public void TestDixPlusUnité(int n)
         {
             // ETANT DONNE un chiffre <n> entre 10 et 11
@@ -71,6 +46,20 @@ namespace NombresRomains.Test
             // ALORS on X suivi de I répété <n - 10> fois
             var attendu = 'X' + new string('I', n - 10);
             Assert.Equal(attendu, nombreRomain);
+        }
+
+        [Theory]
+        [InlineData(4, 'V')]
+        [InlineData(9, 'X')]
+        public void TestUnitéAvantSymbole(int nombreArabe, char symbole)
+        {
+            // ETANT DONNE un chiffre <nombreArabe> directement inférieur à un symbole <symbole> donné
+
+            // QUAND on le convertir en nombre romain
+            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(nombreArabe);
+
+            // ALORS on obtient I<symbole>
+            Assert.Equal("I" + symbole, nombreRomain);
         }
     }
 }
