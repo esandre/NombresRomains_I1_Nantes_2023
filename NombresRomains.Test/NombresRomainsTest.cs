@@ -45,5 +45,18 @@ namespace NombresRomains.Test
             var attendu = 'V' + new string('I', n - 5);
             Assert.Equal(attendu, nombreRomain);
         }
+
+        [Fact]
+        public void Test9()
+        {
+            // ETANT DONNE le chiffre 9
+            const int chiffreArabe = 9;
+
+            // QUAND on le convertir en nombre romain
+            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(chiffreArabe);
+
+            // ALORS on obtient IX
+            Assert.Equal("IX", nombreRomain);
+        }
     }
 }
