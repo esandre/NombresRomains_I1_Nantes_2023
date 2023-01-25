@@ -30,30 +30,19 @@ namespace NombresRomains.Test
             Assert.Equal("IV", nombreRomain);
         }
 
-        [Fact]
-        public void Test5()
+        [Theory]
+        [InlineData(5)]
+        [InlineData(6)]
+        [InlineData(7)]
+        public void TestCinqPlusUnité(int n)
         {
-            // ETANT DONNE le chiffre 5
-            const int chiffreArabe = 5;
-
+            // ETANT DONNE un chiffre <n> entre 5 et 7
             // QUAND on le convertir en nombre romain
-            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(chiffreArabe);
+            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(n);
 
-            // ALORS on obtient V
-            Assert.Equal("V", nombreRomain);
-        }
-
-        [Fact]
-        public void Test6()
-        {
-            // ETANT DONNE le chiffre 6
-            const int chiffreArabe = 6;
-
-            // QUAND on le convertir en nombre romain
-            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(chiffreArabe);
-
-            // ALORS on obtient VI
-            Assert.Equal("VI", nombreRomain);
+            // ALORS on V suivi de I répété <n - 5> fois
+            var attendu = 'V' + new string('I', n - 5);
+            Assert.Equal(attendu, nombreRomain);
         }
     }
 }
