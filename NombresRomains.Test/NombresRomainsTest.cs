@@ -27,5 +27,18 @@ namespace NombresRomains.Test
             // ALORS on obtient II
             Assert.Equal("II", nombreRomain);
         }
+
+        [Fact]
+        public void Test3()
+        {
+            // ETANT DONNE le chiffre 3
+            const int chiffreArabe = 3;
+
+            // QUAND on le convertir en nombre romain
+            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(chiffreArabe);
+
+            // ALORS on obtient III
+            Assert.Equal("III", nombreRomain);
+        }
     }
 }
