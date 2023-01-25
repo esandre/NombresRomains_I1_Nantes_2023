@@ -58,5 +58,18 @@ namespace NombresRomains.Test
             // ALORS on obtient IX
             Assert.Equal("IX", nombreRomain);
         }
+
+        [Fact]
+        public void Test10()
+        {
+            // ETANT DONNE le chiffre 10
+            const int chiffreArabe = 10;
+
+            // QUAND on le convertir en nombre romain
+            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(chiffreArabe);
+
+            // ALORS on obtient X
+            Assert.Equal("X", nombreRomain);
+        }
     }
 }
