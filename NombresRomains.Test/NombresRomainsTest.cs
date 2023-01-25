@@ -34,9 +34,10 @@ namespace NombresRomains.Test
         [InlineData(5)]
         [InlineData(6)]
         [InlineData(7)]
+        [InlineData(8)]
         public void TestCinqPlusUnité(int n)
         {
-            // ETANT DONNE un chiffre <n> entre 5 et 7
+            // ETANT DONNE un chiffre <n> entre 5 et 8
             // QUAND on le convertir en nombre romain
             var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(n);
 
