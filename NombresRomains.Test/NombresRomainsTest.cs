@@ -59,17 +59,18 @@ namespace NombresRomains.Test
             Assert.Equal("IX", nombreRomain);
         }
 
-        [Fact]
-        public void Test10()
+        [Theory]
+        [InlineData(10)]
+        [InlineData(11)]
+        public void TestDixPlusUnité(int n)
         {
-            // ETANT DONNE le chiffre 10
-            const int chiffreArabe = 10;
-
+            // ETANT DONNE un chiffre <n> entre 10 et 11
             // QUAND on le convertir en nombre romain
-            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(chiffreArabe);
+            var nombreRomain = NombresRomains_I1.NombresRomains.Convertir(n);
 
-            // ALORS on obtient X
-            Assert.Equal("X", nombreRomain);
+            // ALORS on X suivi de I répété <n - 10> fois
+            var attendu = 'X' + new string('I', n - 10);
+            Assert.Equal(attendu, nombreRomain);
         }
     }
 }
